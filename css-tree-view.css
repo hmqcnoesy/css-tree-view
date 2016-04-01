@@ -1,0 +1,93 @@
+
+/* Tree View */
+#divWbs {
+    overflow: auto;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 70px;
+    padding: 8px 4px 8px 0;
+}
+
+#divWbs ul {
+    list-style: none;
+    padding-left: 30px;
+}
+
+#divWbs li {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+#divWbs label {
+    cursor:pointer;
+    font-weight: normal;
+    display: table-cell; /* correct text-wrapping behavior in the tree view */
+}
+
+#divWbs input[type=checkbox] {
+    display: none;
+}
+
+#divWbs input[type=checkbox] + label {
+    font-family: Consolas, Courier New, Courier, monospace;
+    font-size: 12px;
+    padding: 1px 6px;
+    color: white;
+    border-radius: 4px;
+}
+
+#divWbs input[type=checkbox]:checked + label::before {
+    content: "-";
+}
+
+#divWbs input[type=checkbox]:not(:checked) + label::before {
+    content: "+";
+}
+
+#divWbs input[type=checkbox]:checked + label.lvl5::before,
+#divWbs input[type=checkbox]:not(:checked) + label.lvl5::before {
+    color: transparent;
+    cursor: default;
+}
+
+#divWbs input[type=checkbox]:checked ~ ul {
+    display: block;
+}
+
+#divWbs input[type=checkbox]:not(:checked ) ~ ul {
+    display: none;
+}
+
+#divWbs input[type=radio] {
+    display: none;
+}
+
+#divWbs input[type=radio] + label {
+    padding: 0 5px;
+    border-radius: 4px;
+}
+
+#divWbs input[type=radio]:checked + label {
+    background-color: #428bca;
+    color: white;
+}
+
+label.lvl-1 { background-color: black; color: white; }
+label.lvl0 { background-color: lightsteelblue; }
+label.lvl1 { background-image: linear-gradient(#6D94BF, #446E9B 50%, #3E648D); }
+label.lvl2 { background-image: linear-gradient(#FF1D1B, #CD0200 50%, #B90200); }
+label.lvl3 { background-image: linear-gradient(#61DD45, #3CB521 50%, #36A41E); }
+label.lvl4 { background-image: linear-gradient(#FF9C21, #D47500 50%, #C06A00); }
+label.lvl5 { background-image: linear-gradient(#dede31, #f8e61a 50%, #dede31); }
+label.hasEstimates::before { 
+    font-weight: bold;
+    color: green;
+    content: "$";
+    padding-right: 5px;
+    text-shadow: 0 0 4px white;
+}
+
+/* end Tree View */
